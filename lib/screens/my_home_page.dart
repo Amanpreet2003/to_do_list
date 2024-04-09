@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -13,7 +14,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        leading: Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             
@@ -26,11 +27,13 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(
                 fontFamily: 'Caveat',
                 fontSize: 32,
+                color: Color.fromARGB(255, 255, 118, 59),
               ),
               
               
               
               ),
+              
           
 
 
@@ -39,6 +42,35 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ),
         ),
+        body: Container(
+          color: Colors.grey[200],
+          child: Column(
+            children:<Widget>[
+              Expanded(
+
+              child: Container(
+                height: 300,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                child: TableCalendar(
+                  calendarFormat: CalendarFormat.month,
+                  headerVisible: false,
+                  focusedDay: DateTime.now(),
+                  firstDay: DateTime(2023),
+                  lastDay: DateTime(2025),
+
+
+                ),
+                ),
+              ),
+              ),
+
+
+            ],
+          ),
+        ),
+        
     );
   }
 }
